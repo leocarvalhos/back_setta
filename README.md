@@ -1,73 +1,75 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Sistema análise de eficiência de máquinas
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Sumário
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+1. [Visão Geral](#visão-geral)
+2. [Ferramentas Utilizadas](#ferramentas-utilizadas)
+3. [Arquitetura do Sistema](#arquitetura-do-sistema)
+4. [Configuração do Ambiente](#configuração-do-ambiente)
+5. [Documentação com Swagger](#documentação-com-swagger)
+6. [Experiência com Ferramentas](#experiência-com-ferramentas)
 
-## Description
+## Visão Geral
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Este projeto é um teste back-end para a empresa Grupo Setta e consiste no desenvolvimento de um sistema análise de eficiência de máquinas. A aplicação foi desenvolvida utilizando TypeScript, Nest.js, TypeORM, Swagger, Redis e PostgreSQL.
 
-## Installation
+## Ferramentas Utilizadas
 
-```bash
-$ yarn install
-```
+- **TypeScript**: Linguagem de programação utilizada para desenvolvimento do projeto.
+- **Nest.js**: Framework para construção de aplicações Node.js eficientes, confiáveis e escaláveis.
+- **TypeORM**: ORM utilizado para interagir com o banco de dados PostgreSQL.
+- **Swagger**: Ferramenta para documentação e teste dos endpoints da API.
+- **PostgreSQL**: Banco de dados relacional utilizado para armazenar os dados.
 
-## Running the app
+## Arquitetura do Sistema
 
-```bash
-# development
-$ yarn run start
+A arquitetura do sistema é composta por uma aplicação back-end que provê uma API RESTful em JSON. Os principais componentes são:
 
-# watch mode
-$ yarn run start:dev
+- **machine**: Contém os controladores e serviços responsáveis pelas manipulação máquinas . Aqui fica a lógica para lidar com a criação, atualização, leitura e exlusão de máquinas.
 
-# production mode
-$ yarn run start:prod
-```
+- **machineEfficiency**: Aqui reside a lógica para manipulação dos dados de eficiência de uma máquina. Implementei as operações CRUD (Create, Read, Update, Delete) seguindo os padrões do NestJS. Isso significa que tem controladores para manipular as solicitações HTTP relacionadas a machineEffiencyu e serviços para realizar as operações de banco de dados.
 
-## Test
+- **history**: Essa entidade lida com gravar um historico de dados relacionados a Máquina e a Eficiência de uma Máquina.
 
-```bash
-# unit tests
-$ yarn run test
+## Módulos
 
-# e2e tests
-$ yarn run test:e2e
 
-# test coverage
-$ yarn run test:cov
-```
+### Máquinas (Machine)
 
-## Support
+- **machine.module.ts**: Gerencia tudo relacionado as máquinas.
+- **machine.controller.ts**: Controla as solicitações de máquinas, como adicionar, obter listagem, atualizar e excluir.
+- **machine.service.ts**: Aqui está a lógica real das máqquinas, como adicionar ou buscar máquinas no banco de dados.
+- **machine.entity.ts**: Define a estrutura dos dados de uma máquina.
+- **movie.repository.ts**: Interage com o banco de dados para buscar, adicionar ou excluir máquinas.
+- 
+- ### Eficiência de uma Máquina (MachineEfficiency)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- **machine.module.ts**: Gerencia tudo relacionado as MachineEfficiency.
+- **machine.controller.ts**: Controla as solicitações de MachineEfficiency, como adicionar, obter listagem, atualizar e excluir.
+- **machine.service.ts**: Aqui está a lógica real das MachineEfficiency, como adicionar ou buscar máquinas no banco de dados.
+- **machine.entity.ts**: Define a estrutura dos dados de uma MachineEfficiency.
+- **movie.repository.ts**: Interage com o banco de dados para buscar, adicionar ou excluir MachineEfficiency.
+- 
+- ### History (Historico)
 
-## Stay in touch
+- **machine.module.ts**: Gerencia tudo relacionado as History.
+- **machine.controller.ts**: Controla as solicitações de History, como adicionar, obter listagem, atualizar e excluir.
+- **machine.service.ts**: Aqui está a lógica real das History, como adicionar ou buscar History no banco de dados.
+- **machine.entity.ts**: Define a estrutura dos dados de uma History.
+- **movie.repository.ts**: Interage com o banco de dados para buscar, adicionar ou excluir History.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
+## Documentação-com-Swagger
 
-Nest is [MIT licensed](LICENSE).
+<p>Swagger é uma ferramenta popular para documentar APIs. Ele permite que os desenvolvedores descrevam, documentem e testem APIs de forma eficiente. Com o Swagger, você pode criar uma documentação interativa para sua API, facilitando para outros desenvolvedores entenderem como usar seus endpoints.</p>
+<p>Link do Swagger: <a>http://localhost:3001</a></p>
+
+
+## Experiência com Ferramentas
+
+- TypeScript - 3 anos
+- Nest.JS - 2 anos
+- TypeORM - 2 anos
+- Postgres - 3 anos
+- Swagger - 2 anos
+
