@@ -5,7 +5,6 @@
 1. [Visão Geral](#visão-geral)
 2. [Ferramentas Utilizadas](#ferramentas-utilizadas)
 3. [Arquitetura do Sistema](#arquitetura-do-sistema)
-4. [Configuração do Ambiente](#configuração-do-ambiente)
 5. [Documentação com Swagger](#documentação-com-swagger)
 6. [Experiência com Ferramentas](#experiência-com-ferramentas)
 
