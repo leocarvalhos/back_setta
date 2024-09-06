@@ -48,10 +48,4 @@ export class HistoryService {
 
     return historyFormatted;
   }
-
-  async findOne(id: string): Promise<History> {
-    const row = await this.historyRepository.findOneByOrFail({ id });
-
-    return row;
-  }
 }
